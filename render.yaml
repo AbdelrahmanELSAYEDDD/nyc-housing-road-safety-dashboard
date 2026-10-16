@@ -1,0 +1,10 @@
+# Render Blueprint for the Dash website (free web service).
+# Python version is set by the .python-version file (3.12). The app reads data/processed/ from the repository.
+services:
+  - type: web
+    name: nyc-housing-road-safety-dashboard
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:server --workers 1 --timeout 120
+    healthCheckPath: /

@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Colab working folder and downloaded raw snapshots (large; reproducible from NYC Open Data)
+dev_project/
+data/raw/
+*.zip
+
+# OS / editor
+.DS_Store
+.ipynb_checkpoints/
