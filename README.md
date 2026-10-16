@@ -12,7 +12,7 @@ with dropdown filters, a keyword search, a **Generate Report** button and a data
 
 | | |
 |---|---|
-| Website | *Not deployed yet — add the Render link here after section 5* |
+| Website | https://succeeds-salmon-pheasant-b62dfbf3.plotly.app/|
 | Notebook | `notebooks/01_data_engineering_and_visualization_FINAL_SUBMISSION.ipynb` |
 | Student | Abdelrahman El-sayed (13004550) — see [CONTRIBUTIONS.md](CONTRIBUTIONS.md) |
 | AI assistance | ChatGPT (OpenAI) for planning, explanations and reviews; Claude (Anthropic) for most of the code — see [CONTRIBUTIONS.md](CONTRIBUTIONS.md) and [docs/AI_PROMPT_LOG.md](docs/AI_PROMPT_LOG.md) |
