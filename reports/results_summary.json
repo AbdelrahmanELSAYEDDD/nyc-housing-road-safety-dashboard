@@ -1,0 +1,122 @@
+{
+  "rq1": {
+    "rho": 0.33030301076706636,
+    "areas": 177,
+    "by_type": [
+      {
+        "construction type": "All",
+        "areas": 177,
+        "spearman_rho": 0.33,
+        "description": "moderate positive association"
+      },
+      {
+        "construction type": "New Construction",
+        "areas": 177,
+        "spearman_rho": 0.421,
+        "description": "moderate positive association"
+      },
+      {
+        "construction type": "Preservation",
+        "areas": 177,
+        "spearman_rho": 0.099,
+        "description": "negligible positive association"
+      }
+    ],
+    "median_crash_rate_by_tier": {
+      "No completions": 21.86553505774121,
+      "Lower half": 26.787453730761737,
+      "Upper half": 32.66454765883136
+    }
+  },
+  "rq2": {
+    "high_high_areas": 44,
+    "by_borough": {
+      "Brooklyn": 15,
+      "Bronx": 14,
+      "Manhattan": 11,
+      "Queens": 3,
+      "Staten Island": 1
+    },
+    "crash_rate_median": 26.748412078394075,
+    "new_construction_share_pct": 64.81467930189163
+  },
+  "rq3": {
+    "change_pct": {
+      "No completions": 21.6,
+      "Lower half": 17.3,
+      "Upper half": -2.2
+    },
+    "citywide_dated_change_pct": 2.361931226120184,
+    "citywide_assigned_change_pct": 9.307782557684785
+  },
+  "rq4": {
+    "crashes_upper": 4596,
+    "crashes_other": 5140,
+    "weekend_share_pct": [
+      27.93733681462141,
+      27.373540856031127
+    ],
+    "night_share_pct": [
+      29.395126196692775,
+      25.875486381322958
+    ],
+    "largest_cell_difference_pp": 0.7566044572678661
+  },
+  "rq5": {
+    "median_crash_rate": {
+      "New-construction dominant": 31.365245030625037,
+      "Mixed": 27.77098750185004,
+      "Preservation dominant": 23.155650098524827,
+      "No completions": 21.86553505774121
+    },
+    "areas": {
+      "New-construction dominant": 78,
+      "Mixed": 16,
+      "Preservation dominant": 36,
+      "No completions": 47
+    }
+  },
+  "rq6": {
+    "band_rates": {
+      "Extremely low income": 32.61131607083086,
+      "Very low income": 27.88764798630105,
+      "Low income": 32.38658379434888,
+      "Moderate income": 34.368395350484626,
+      "Middle income": 42.37201739688367,
+      "Other income units": 32.81475662280547
+    },
+    "resident_avg": 29.30905595646236,
+    "units": {
+      "Extremely low income": 15451,
+      "Very low income": 30111,
+      "Low income": 29098,
+      "Moderate income": 5668,
+      "Middle income": 19360,
+      "Other income units": 369
+    }
+  },
+  "rq7": {
+    "share_known_pct": {
+      "No completions": 4.471544715447155,
+      "Lower half": 4.934848904907125,
+      "Upper half": 8.403767205988892
+    },
+    "unknown": 1167
+  },
+  "rq8": {
+    "top5": [
+      "11101",
+      "10035",
+      "10454",
+      "10474",
+      "11217"
+    ],
+    "boroughs_top15": {
+      "Bronx": 7,
+      "Brooklyn": 4,
+      "Manhattan": 3,
+      "Queens": 1
+    },
+    "pipeline_units_started_before_window_pct": 25.647499070882084
+  }
+}

@@ -1,0 +1,77 @@
+check_id,stage,status,detail
+helper_zip_parser,setup,PASS,strict ZIP parser accepts only complete 5-digit NYC ZIPs
+helper_time_parser,setup,PASS,time parser normalises H:MM and rejects impossible times
+housing_schema_complete,extraction,PASS,all 41 expected columns present
+housing_no_unexpected_columns,extraction,PASS,no unexpected columns
+housing_complete_download,extraction,PASS,"downloaded 9,551 rows = API count"
+housing_matches_recorded_snapshot,extraction,PASS,"9,551 rows x 41 columns, as recorded on 2026-10-14"
+sirta_schema_complete,extraction,PASS,all 23 expected columns present
+sirta_no_unexpected_columns,extraction,PASS,no unexpected columns
+sirta_complete_download,extraction,PASS,"downloaded 13,754 rows = API count"
+sirta_matches_recorded_snapshot,extraction,PASS,"13,754 rows x 23 columns, as recorded on 2026-10-14"
+modzcta_schema_complete,extraction,PASS,all 4 expected columns present
+modzcta_no_unexpected_columns,extraction,PASS,no unexpected columns
+modzcta_matches_recorded_snapshot,extraction,PASS,"178 rows x 4 columns, as recorded on 2026-10-14"
+sirta_more_than_default_page,extraction,PASS,"both downloads exceed the API's default 1,000-row page"
+type_parsing_clean,typing,PASS,no unparseable dates or numbers
+housing_borough_values,housing cleaning,PASS,every borough value is one of the five boroughs
+housing_construction_type_values,housing cleaning,PASS,construction type is always New Construction or Preservation
+housing_ids_numeric,housing cleaning,PASS,project and building ids are numeric text
+housing_dates_in_scope,housing cleaning,PASS,all dates fall between 2014-01-01 and the snapshot date
+housing_no_negative_units,housing cleaning,PASS,no negative unit counts
+housing_integer_units,housing cleaning,PASS,all unit counts are whole numbers
+housing_project_id_present,housing cleaning,PASS,every row has a project id
+housing_key_unique,housing cleaning,PASS,"(project_id, building_id) is unique: one row per building per project"
+housing_exact_duplicates,housing cleaning,PASS,no exact duplicate rows
+housing_nonconfidential_have_building_id,housing cleaning,PASS,every non-confidential row has a building id
+housing_confidential_have_no_location,housing cleaning,PASS,"confidential rows carry no ZIP, coordinates or building id (as published)"
+sirta_crash_id_numeric,sirta cleaning,PASS,collision ids are whole numbers
+sirta_counts_valid,sirta cleaning,PASS,"injury, fatality and look-back counts are non-negative whole numbers"
+sirta_dates_present,sirta cleaning,PASS,every retained crash has a date
+sirta_dates_in_range,sirta cleaning,PASS,all crash dates fall between 2022-01-01 and the snapshot date
+sirta_borough_values,sirta cleaning,PASS,borough values are the five boroughs
+sirta_serious_definition,sirta cleaning,PASS,"every crash with known counts has at least one severe injury or fatality, as the program defines"
+sirta_rows_reconcile,sirta cleaning,PASS,raw rows = excluded + retained
+sirta_excluded_table_complete,sirta cleaning,PASS,every excluded record is kept in the exclusion table
+housing_rows_preserved,cleaned-data validation,PASS,"all 9,551 housing rows retained"
+housing_zip_format,cleaned-data validation,PASS,every housing ZIP is exactly 5 digits
+sirta_zip_format,cleaned-data validation,PASS,every SIRTA ZIP is exactly 5 digits
+housing_units_nonnegative,cleaned-data validation,PASS,no negative unit counts
+sirta_counts_nonnegative,cleaned-data validation,PASS,no negative injury or fatality counts
+housing_status_consistent,cleaned-data validation,PASS,completion status matches the presence of a completion date
+housing_confidential_flag,cleaned-data validation,PASS,confidential flag matches the raw data
+sirta_ids_unique_or_flagged,cleaned-data validation,PASS,collision ids are unique except explicitly unresolved conflicts
+sirta_dates_parsed,cleaned-data validation,PASS,every retained crash has a parsed date
+sirta_time_status_known,cleaned-data validation,PASS,every crash has a time status
+reference_unique_areas,geographic reference,PASS,177 unique analytical areas
+reference_geometry_valid,geographic reference,PASS,all geometries valid (0 repaired)
+reference_population_positive,geographic reference,PASS,every area has a positive 2018 population estimate
+reference_borough_assigned,geographic reference,PASS,every area has a borough from its ZIP prefix
+zip_lookup_unambiguous,geographic reference,PASS,217 ZIP codes map to exactly one area
+borough_summary_unique_keys,post-integration cleaning,PASS,one row per borough and year in the borough table
+borough_summary_reconciles,post-integration cleaning,PASS,"borough totals match the full data: 11,958 crashes (10,777 placed in an area) and 101,249 completed units"
+pipeline_type_split,post-integration cleaning,PASS,new-construction + preservation pipeline units = all pipeline units in every area
+panel_key_unique,integrated validation,PASS,"(modzcta, year) is unique"
+panel_complete_grid,integrated validation,PASS,708 rows = 177 areas x 4 years
+panel_years,integrated validation,PASS,"years are exactly [2022, 2023, 2024, 2025]"
+panel_units_total,integrated validation,PASS,"panel units (100,057) = assigned in-window units"
+panel_buildings_total,integrated validation,PASS,"panel buildings (2,241) = assigned in-window buildings"
+panel_crashes_total,integrated validation,PASS,"panel crashes (10,777) = assigned in-window crashes"
+panel_local_plus_highway,integrated validation,PASS,local + highway = all crashes in every row
+panel_fatalities_total,integrated validation,PASS,fatality totals preserved
+panel_repeat_split,integrated validation,PASS,repeat + first + unknown = local crashes
+panel_no_negative_counts,integrated validation,PASS,no negative counts
+panel_count_types,integrated validation,PASS,all counts are integers
+panel_rates_finite,integrated validation,PASS,no infinite rates
+panel_rates_undefined_without_population,integrated validation,PASS,rates are missing exactly where population is missing
+panel_no_unexpected_missing,integrated validation,PASS,no missing values outside population-dependent and coverage columns
+panel_reproducible,integrated validation,PASS,rebuilding the panel from the cleaned records gives an identical table
+calc_rates,research checks,PASS,"area A: 40 units / 10,000 residents = 4.0 per 1,000; 8 crashes / 4 years / 10,000 = 20 per 100k per year"
+calc_tiers,research checks,PASS,tiers: 0 units -> No completions; above the median of areas with completions -> Upper half
+calc_lookback_unknown,research checks,PASS,"unknown look-back values are excluded from the share, not counted as 'none' (1 of 3 known = 33.3%)"
+calc_priority,research checks,PASS,priority score = average of the two percentiles; areas without unfinished units are not listed
+calc_search,research checks,PASS,"search 'Brooklyn 2023 new construction' -> borough Brooklyn, year 2023, New Construction"
+report_not_empty,research checks,PASS,default report covers 177 areas
+report_area_totals,research checks,PASS,area totals equal the panel totals (no units or crashes lost in the calculations)
+report_band_totals,research checks,PASS,income-band units add up to the units with a known income breakdown in every area-year
+website_reproduces_notebook,outputs,PASS,the exported files reproduce every research-question result of the notebook

@@ -1,0 +1,18 @@
+dataset,stage,records,counted_units
+housing,raw rows,9551,320946
+housing,excluded during cleaning,0,0
+housing,completed buildings (any year),7885,242256
+housing,completed in 2022-2025,2957,101249
+housing,  ... confidential (borough totals only),716,1192
+housing,  ... published but unassigned,0,0
+housing,  ... assigned to an area (enters the panel),2241,100057
+housing,panel totals,2241,100057
+housing,"in progress (pipeline, any area)",1666,78690
+sirta,raw rows,13754,
+sirta,excluded during cleaning,445,
+sirta,retained after cleaning,13309,
+sirta,crash year 2022-2025,11958,
+sirta,  ... unassigned (borough totals only),1181,
+sirta,  ... assigned to an area (enters the panel),10777,
+sirta,panel totals (crashes_all),10777,
+panel,final panel rows (areas x years),708,

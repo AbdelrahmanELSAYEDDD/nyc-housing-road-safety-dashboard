@@ -1,0 +1,2 @@
+crash_id,records,dates,fatalities,differing_fields,decision,fatality_value
+4597666,"T02147, T10709","2023-01-13, 2026-01-13","0, 1","crash_date, total_fatalities, similar_fatalities_severe, similar_fatalities_all","kept T02147 (date consistent with the id sequence); excluded T10709 (its date contradicts the id sequence, see 7.5)","conflict: recorded value kept, not changed"

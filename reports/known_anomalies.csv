@@ -1,0 +1,7 @@
+anomaly_id,dataset,records,description,handling
+HOUSING-DATE-ORDER,housing,20,building completion date earlier than project start date,retained with the completion year as reported; listed as a limitation (Section 12)
+HOUSING-MULTI-PROJECT,housing,247,123 buildings appear in more than one project,retained (HPD counts units per project) and flagged
+HOUSING-CONFIDENTIAL,housing,1949,"confidential buildings without published location (2,805 counted units in total)",kept in citywide and borough totals; cannot be placed in a ZIP area
+SIRTA-ID-4597666,sirta,2,"collision id 4597666 recorded on 2023-01-13, 2026-01-13 with fatalities 0, 1","kept T02147 (date consistent with the id sequence); excluded T10709 (its date contradicts the id sequence, see 7.5); fatality value: conflict: recorded value kept, not changed"
+SIRTA-NONSTANDARD-IDS,sirta,5,collision ids outside the regular NYPD sequence (crash years: 2026: 5),retained; dates are plausible and the id-based check cannot assess them; not treated as date errors
+SIRTA-SUSPECT-DATES,sirta,0,crash dates that contradict neighbouring collision ids (possible date-entry errors or weak evidence),retained with original dates and flagged; listed as a limitation (Section 12)

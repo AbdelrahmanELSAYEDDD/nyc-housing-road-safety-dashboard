@@ -1,0 +1,14 @@
+dataset,limitation,records,handling,possible effect on the analysis
+Housing,Confidential buildings (no published location),1949,kept in citywide and borough totals,"716 buildings completed in 2022–2025 (1,192 units) are missing from area metrics"
+Housing,Counted units unknown,29,buildings counted; units left out of sums,unit totals slightly understated
+Housing,Completion before project start,20,kept and flagged,completion year may be wrong for these buildings
+Housing,Building in more than one project,247,kept (HPD counts units per project) and flagged,a physical building may be counted more than once
+SIRTA,"Orphan rows (no id, date or injuries)",444,excluded with the reason recorded,none (cannot be tied to a crash or year)
+SIRTA,Repeated collision id (4597666),2,resolved with the id-sequence evidence where possible; fatality conflicts left as recorded and flagged,a fatality total may differ by the conflicting amount
+SIRTA,Collision ids outside the regular sequence,5,kept; not treated as date errors,0 of them fall inside 2022–2025
+SIRTA,Possible date problems (id check),0,kept and flagged,a few crashes may belong to another year
+SIRTA,2022–2025 crashes not placed in an area,1181,kept in borough totals,5.2–12.4% per year; coverage shifts the 2022–2025 change by +6.9 points
+SIRTA,Reported ZIP disagrees with coordinates,559,coordinates used first,100% of disagreements are neighbouring areas
+SIRTA,Blank 3-year look-back value,1393,"kept as unknown, never zero",RQ7 shares use known values only
+SIRTA,Crash time recorded exactly 00:00,227,excluded from RQ4 only,small
+Reference,2018 population for all areas,177,used for all per-resident rates,rates may be off where population changed

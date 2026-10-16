@@ -1,0 +1,22 @@
+dataset,step,action,records_affected,rows_before,rows_after,reason
+housing,6.1,"standardise text, borough, construction type, yes/no flags",0,9551,9551,consistent categories for grouping and filtering
+housing,6.2,address placeholders '----' -> missing,3898,9551,9551,placeholder is not an address
+housing,6.2,"placeholder BINs (e.g. 3000000) -> missing, flagged",482,9551,9551,a borough code followed by zeros is not a real building number
+housing,6.2,date-like house numbers flagged,7,9551,9551,original address cannot be recovered with certainty
+housing,6.3,ZIP parsed strictly; invalid ZIPs -> missing,0,9551,9551,only complete 5-digit NYC ZIPs are usable
+housing,6.3,coordinates outside NYC -> missing,0,9551,9551,a point outside the city cannot be placed in a ZIP area
+housing,6.4,completion-before-start records flagged,20,9551,9551,cannot tell which date is wrong
+housing,6.5,negative or fractional unit counts -> missing,0,9551,9551,a building cannot have negative or fractional units
+housing,6.7,missing all_counted_units derived from agreeing income and tenure sums,0,9551,9551,two independent breakdowns give the same total
+housing,6.8,structural zeros filled in reconciled breakdowns,105816,9551,9551,"components add up exactly to the reference total, so blanks are zeros"
+housing,6.9,"impossible unit combinations (counted > total, total <= 0) -> units missing",0,9551,9551,logically impossible; cannot tell which value is wrong
+housing,6.9,"very large buildings flagged (log-IQR), kept",0,9551,9551,large affordable developments are plausible
+housing,6.11,completion status derived (missing completion date = in progress),1666,9551,9551,a blank completion date marks unfinished work
+sirta,7.1,orphan rows excluded,444,13754,13310,cannot be tied to any crash or year
+sirta,7.1,"exact copies inside the orphan group (already counted once, as orphans)",3,13310,13310,identical copies of other orphan rows
+sirta,7.1,exact duplicate copies excluded (outside the orphan group),0,13310,13310,identical copy of another row
+sirta,7.4,crash time normalised to HH:MM; exact 00:00 flagged as uncertain,227,13310,13310,00:00 is 4.0x more frequent than other on-the-hour times
+sirta,7.6,repeated collision id resolved using the id-sequence evidence,1,13310,13309,same crash recorded twice; one date contradicts the id sequence
+sirta,7.7,placeholder/invalid ZIPs -> missing,44,13309,13309,10000 is not a NYC ZIP; only complete 5-digit ZIPs are usable
+sirta,7.7,coordinates outside NYC -> missing,0,13309,13309,a point outside the city cannot be placed in a ZIP area
+sirta,7.8,highway crashes flagged,1410,13309,13309,limited-access roads do not serve the ZIP areas they cross

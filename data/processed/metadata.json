@@ -1,0 +1,21 @@
+{
+  "snapshot_date": "2026-10-16",
+  "source_mode": "fresh-download",
+  "generated_utc": "2026-10-16T00:34:49+00:00",
+  "analysis_years": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "areas": 177,
+  "panel_rows": 708,
+  "housing_rows_raw": 9551,
+  "sirta_rows_raw": 13754,
+  "sirta_rows_retained": 13309,
+  "sources": {
+    "housing": "https://data.cityofnewyork.us/d/hg8x-zxpr",
+    "sirta": "https://data.cityofnewyork.us/d/xeqp-qz8h",
+    "modzcta": "https://data.cityofnewyork.us/d/pri4-ifjk"
+  }
+}
